@@ -1,54 +1,53 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset = "utf-8">
-        <title>最初のシーン</title>
-        <meta name="description" content="firstscene" >
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script>
-        <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
 
-        <script>
-            function tugi(){
-              window.location.href = "https://18j5141.github.io/meiseisound2/"
-            }
-        
-            AFRAME.registerComponent('test', {
-              init: function () {
-                console.log(this);
-                const element = this.el;
-                element.addEventListener('mouseenter', function () {
-                  console.log('mouseenter');
-                  document.getElementById("text").setAttribute("value","Go!");
-                  setTimeout(tugi, 5000);
-                  
-                });
-              }
-            });
-        
-          </script>
-    </head>
-    <body>
-      <a-scene>
-        <a-assets>
-          <audio id="nami1" src="nami1.mp3" preload="auto"></audio> 
-          <img id="box" src="logo.jpg">
-        </a-assets>
-        <a-camera>
-          <a-cursor fuse="true" fuse-timeout="1000"></a-cursor> 
-        </a-camera>
+<head>
+  <meta charset="utf-8">
+  <title>A-frame3</title>
+  <meta name="description" content="A-frame3">
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script> -->
+  <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+  <script>
+    AFRAME.registerComponent('test', {
+      init: function () {
+        console.log(this);
+        const element = this.el;
+        element.addEventListener('sound-loaded', function () {
+          console.log('sound-loaded');
+          setTimeout(function () {
+            element.components.sound.playSound();
+          }, 1000);
+        });
+        element.addEventListener('mouseenter', function () {
+          console.log('mouseenter');
+          element.components.sound.pauseSound();
+        });
+        element.addEventListener('mouseleave', function () {
+          console.log('mouseleave');
+          element.components.sound.playSound();
+        });
+      }
+    });
+  </script>
+</head>
 
-        <a-text value="Start"　position="-1 0 -8" color="black" width="3"></a-text>
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="hasi" src="hasi.jpg" preload="auto"></img>
+      <audio id="nami" src="nami1.mp3" preload="auto"></audio>
+    </a-assets>
+    <a-camera>
+      <a-cursor fuse="true" fuse-timeout="1000"></a-cursor>
+    </a-camera>
 
-        <a-box id="box2" rotation="0 0 0" width="4" height="4" depth="0" color="#FFFFFF" position="0 0 8"
-           material="opacity: 1;" sound="src: #nami1; autoplay: true; loop:true;" src="#box" test>
-        </a-box>
+    <a-box id="box" rotation="0 -20 0" width="9" height="7" depth="0" position="-5 -1 2"
+      material="opacity: 1; color:#ffffff" sound="src: #nami; autoplay: true; loop:true;" test>
+    </a-box>
 
-        <a-entity camera look-controls position="0 1.7 0">
-          <a-text id = "text" value="Let's" position = "0 0 -1" scale = "0.5 0.5 0.5" align = "center" color="#F5DEB3" ></a-text>
-        </a-entity>
-        
-  
-        <a-sky radius="200" theta-length="110" material="shader:gradientshader;topColor:#1E90FF;bottomColor:#87CEFA" geometry="" visible="" id="sky" position=""></a-sky>
-      </a-scene>
-    </body>
+    <a-sky src="#hasi" rotation="0 0 0"></a-sky>
+  </a-scene>
+</body>
+
 </html>
