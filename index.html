@@ -17,7 +17,6 @@
                 });
                 element.addEventListener('mouseenter', function() {
                     console.log('mouseenter');
-                    element.components.sound.pauseSound();
                     setTimeout(tsugi, 5000)
 
                 });
@@ -28,7 +27,7 @@
 <body>
     <a-scene>
         <a-assets>
-            <img id="umi" src="2.jpeg" preload="auto"><img>
+            <img id="riku" src="2.jpeg" preload="auto"><img>
         </a-assets>
         <a-camera>
             <a-cursor fuse="true" fuse-timeout="1000"></a-cursor>
@@ -36,7 +35,7 @@
         <a-box id="box" rotation="0 -20 0" width="9" height="7" depth="0" position="-5 -1 2"
             material="opacity: 1;"  test>
         </a-box>
-        <a-sky src="#umi" rotation="0 0 0"></a-sky>
+        <a-sky src="#riku" rotation="0 0 0"></a-sky>
     </a-scene>
 </body>
 </html>
