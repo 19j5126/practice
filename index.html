@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>A-frame3</title>
   <meta name="description" content="A-frame3">
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script> -->
   <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
   <script>
@@ -35,18 +35,17 @@
 <body>
   <a-scene>
     <a-assets>
-      <img id="hasi" src="birds-5552482_1920.jpg" preload="auto"></img>
-      <audio id="summer" src="夏はsummer!!.mp3" preload="auto"></audio>
+      <img id="sora" src="2.jpeg" preload="auto"></img>
     </a-assets>
     <a-camera>
       <a-cursor fuse="true" fuse-timeout="1000"></a-cursor>
     </a-camera>
 
     <a-box id="box" rotation="0 -20 0" width="9" height="7" depth="0" position="-5 -1 2"
-      material="opacity: 1; color:#ffffff" sound="src: #summer; autoplay: true; loop:true;" test>
+      material="opacity: 1; color:#ffffff"  test>
     </a-box>
 
-    <a-sky src="#hasi" rotation="0 0 0"></a-sky>
+    <a-sky src="#sora" rotation="0 0 0"></a-sky>
   </a-scene>
 </body>
 
