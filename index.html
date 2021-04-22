@@ -14,11 +14,6 @@
             init: function () {
                 console.log(this);
                 const element = this.el;
-                element.addEventListener('sound-loaded', function() { 
-                    console.log('sound-loaded');
-                    setTimeout(function() {
-                        element.components.sound.playSound();
-                    }, 1000);
                 });
                 element.addEventListener('mouseenter', function() {
                     console.log('mouseenter');
